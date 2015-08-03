@@ -326,11 +326,8 @@
           if (scope.currentIndex >= 0 && scope.currentIndex < scope.results.length) {
             event.preventDefault();
             scope.selectResult(scope.results[scope.currentIndex]);
-          } else {
-            handleOverrideSuggestions(event);
-            clearResults();
+            scope.$apply();
           }
-          scope.$apply();
         } else if (which === KEY_DW && scope.results) {
           event.preventDefault();
           if ((scope.currentIndex + 1) < scope.results.length && scope.showDropdown) {
