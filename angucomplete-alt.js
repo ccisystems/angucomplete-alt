@@ -596,6 +596,11 @@
       };
 
       scope.hideResults = function(event) {
+        //On blur we should stop any auto complete searches that are about to start.
+        if(searchTimer !== null) {
+          $timeout.cancel(searchTimer);
+        }
+
         if (mousedownOn &&
             (mousedownOn === scope.id + '_dropdown' ||
              mousedownOn.indexOf('angucomplete') >= 0)) {
